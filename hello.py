@@ -19,7 +19,7 @@ app = Flask(__name__)
 app.debug = True
 app.secret_key = 'why would I tell you my secret key?'
 
-fileData=" solid FLIRIS
+fileData="""solid FLIRIS
 facet normal  0.955654E-01 -0.966960E+00  0.236339E+00
  outer loop
   vertex  0.000000E+00  0.800000E+01  0.000000E+00
@@ -8701,7 +8701,7 @@ facet normal  0.153467E+00  0.987066E+00  0.463569E-01
  endloop
 endfacet
  endsolid FLIRIS
-"
+"""
 
 @app.route('/')
 def hello():
