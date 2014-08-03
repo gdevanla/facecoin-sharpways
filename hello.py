@@ -18,7 +18,7 @@ client = Client(
 
 app = Flask(__name__)
 app.debug = True
-app.secret_key = 'why would I tell you my secret key!?'
+app.secret_key = 'why would I tell you my secret key!'
 
 @app.route('/')
 def hello():
