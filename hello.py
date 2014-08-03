@@ -38,9 +38,9 @@ def add_model():
     #return make_response(r)
     return make_response(json.JSONEncoder().encode([]))
 
-@app.route('/oauth-callback', methods=['GET'])
+@app.route('/ocb', methods=['GET'])
 def oauth_cb():
-    return make_response(json.JSONEncoder().encode(["calledback"])
+    return make_response(json.JSONEncoder().encode(["calledback"]))
 
 # if __name__ == '__main__':
 #     app.run()
