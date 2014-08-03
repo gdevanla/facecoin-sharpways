@@ -52,7 +52,7 @@ def ocb():
     info = client.get_materials()
     print "Info = ", info
     #return make_response()
-    return make_response(json.JSONEncoder().encode(["calledback"]))
+    return make_response(json.JSONEncoder().encode(info))
 
 if __name__ == '__main__':
     app.run()
