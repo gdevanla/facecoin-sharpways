@@ -45,12 +45,12 @@ def ocb():
     modelId = 42
     params = {
         "file": "test",
-        "fileName": "test.stl",
+        "fileName": "bottle.stl",
         "hasRightsToModel": True,
         "acceptTermsAndConditions": True,
     }
 
-    info = client.add_model_file(modelId, params)
+    info = client.add_model_file(42, params)
     #return make_response()
     return make_response(json.JSONEncoder().encode(info))
 
