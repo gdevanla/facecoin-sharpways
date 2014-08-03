@@ -45,11 +45,11 @@ def add_model():
 
 @app.route('/ocb', methods=['GET'])
 def ocb():
-    # print request.args
-    # print request.args.get('oauth_token'), request.args.get('oauth_verifier')
-    # client.verify(request.args.get('oauth_token'), request.args.get('oauth_verifier'))
-    # print "done verifying"
-    info = client.get_api_info()
+    #print request.args
+    #print request.args.get('oauth_token'), request.args.get('oauth_verifier')
+    client.verify(request.args.get('oauth_token'), request.args.get('oauth_verifier'))
+    print "done verifying"
+    info = client.get_materials()
     print "Info = ", info
     #return make_response()
     return make_response(json.JSONEncoder().encode(["calledback"]))
