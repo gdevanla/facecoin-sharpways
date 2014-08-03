@@ -40,7 +40,17 @@ def ocb():
 
     print "done verifying"
     info = client.get_materials()
-    print "Info = ", info
+    print "Materials = ", info
+
+    modelId = 42
+    params = {
+        "file": "test",
+        "fileName": "test.stl",
+        "hasRightsToModel": True,
+        "acceptTermsAndConditions": True,
+    }
+
+    info = client.add_model_file(modelId, params)
     #return make_response()
     return make_response(json.JSONEncoder().encode(info))
 
