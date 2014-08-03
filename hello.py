@@ -8725,6 +8725,7 @@ def ocb():
     print "done verifying"
     info = client.get_materials()
     print "Materials = ", info
+    fileData = "This data should be read from the request object"
 
     modelId = 42
     params = {
