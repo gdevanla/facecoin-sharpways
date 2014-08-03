@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -15,10 +14,20 @@ client = Client(
 
 
 app = Flask(__name__)
+app.debug = True
 
 @app.route('/')
-def hello():
+def hello_world():
     return 'Hello World!'
+
+@app.route('/service-request', methods=['GET'])
+def get_service():
+    if not request.args['s']:
+        return make_response('')
+
+    wts = get_weights(request.args['s'])
+    r = make_response(wts)
+    return r
 
 @app.route('/addmodel', methods=['GET'])
 def add_model():
