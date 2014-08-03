@@ -8734,7 +8734,7 @@ def ocb():
         "acceptTermsAndConditions": True,
     }
 
-    info = client.add_model_file(42, params)
+    info = client.add_model(params)
     #return make_response()
     return make_response(json.JSONEncoder().encode(info))
 
