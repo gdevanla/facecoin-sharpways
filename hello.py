@@ -43,23 +43,20 @@ def signin():
   return make_response(json.JSONEncoder().encode([client.oauth_token,
                                                   client.oauth_secret]))
 
-@app.route('/ocb', methods=['GET'])
-def ocb():
+@app.route('/addmodel', methods=['GET'])
+def addmodel():
 
     client = setUpOAuthClient()
     fileData = getFileData()
     #fileData = "This works?"
     #fileData = base64.b64encode(fileData)
 
-    modelId = 42
     params = {
         "file": fileData,
         "fileName": "bottlev1.stl",
         "hasRightsToModel": True,
         "acceptTermsAndConditions": True,
     }
-
-    #print params['file']
 
     info = client.add_model(params)
 
