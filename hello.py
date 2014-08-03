@@ -8728,7 +8728,7 @@ def ocb():
 
     modelId = 42
     params = {
-        "file": fileData,
+        "file": "something here for them to access",
         "fileName": "bottle.stl",
         "hasRightsToModel": True,
         "acceptTermsAndConditions": True,
