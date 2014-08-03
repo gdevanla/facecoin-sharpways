@@ -114,28 +114,5 @@ def showcart():
 
     return redirect('https://www.shapeways.com/cart/')
 
-
-# @app.route("/addmodel", methods=['GET'])
-# def addmodel():
-#     if 'oauth_verifier' not in session:
-#         print 'Calling auth'
-#         auth()
-#         return make_response(json.JSONEncoder().encode([]))
-
-#     client.verify(session['oauth_token'], session['oauth_verifier'])
-#     modelId = 42
-#     params = {
-#         "file": "test",
-#         "fileName": "test.stl",
-#         "hasRightsToModel": True,
-#         "acceptTermsAndConditions": True,
-#     }
-
-#     print "done verifying"
-#     info = client.get_materials()
-#     print "Info = ", info
-#     #return make_response()
-#     return make_response(json.JSONEncoder().encode(info))
-
 if __name__ == '__main__':
     app.run()
