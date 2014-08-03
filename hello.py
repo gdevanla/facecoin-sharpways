@@ -49,8 +49,8 @@ def ocb():
         consumer_secret="c10ed411b904bc5969b8535317ed93dcce20a7ad",
         #callback_url="oob"
         callback_url="http://thawing-savannah-5714.herokuapp.com/ocb",
-        oauth_token=request.args("oauth_token"),
-        oauth_secret=request.args("oauth_token_secret")
+        oauth_token=request.args.get("oauth_token"),
+        oauth_secret=request.args.get("oauth_token_secret")
     )
 
     print "done verifying"
