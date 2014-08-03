@@ -11,13 +11,16 @@ from shapeways.client import Client
 client = Client(
     consumer_key="0d6f512bc947f1aaa02786d849bccd09c1129340",
     consumer_secret="c10ed411b904bc5969b8535317ed93dcce20a7ad",
-    callback_url="http://thawing-savannah-5714.herokuapp.com/ocb"
+    callback_url="oob"
+    #callback_url="http://thawing-savannah-5714.herokuapp.com/ocb"
 )
 
 
 app = Flask(__name__)
 app.debug = True
 
+oauth_token='f5ae6c8dd25d67a983b3aa87686a30cbaeb94326'
+oauth_verifier='b35006'
 
 @app.route('/')
 def hello():
@@ -36,7 +39,7 @@ def add_model():
     r = client.connect()
 
     #r = client.add_model_file(modelId, params)
-    #print r
+    print r
     return redirect(r)
     #return redirect('http://localhost:5000/?oauth_token=393ddd84b2b38d7e367a76a648633b47d45e091d&oauth_verifier=15daba
 
@@ -48,6 +51,11 @@ def ocb():
     #print request.args
     #print request.args.get('oauth_token'), request.args.get('oauth_verifier')
     client.verify(request.args.get('oauth_token'), request.args.get('oauth_verifier'))
+    # oauth_token='a1fb6f511c6a2186eb466b3699e12b5a1b715494'
+    # oauth_verifier='d6e30d'
+    # print oauth_token , oauth_verifier
+    # client.verify(oauth_token, oauth_verifier)
+
     print "done verifying"
     info = client.get_materials()
     print "Info = ", info
