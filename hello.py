@@ -44,7 +44,6 @@ def ocb():
 def addmodel():
     if 'oauth_verifier' not in session:
         print 'Calling auth'
-        client.callback_url = client.callback_url % ('addmodel',)
         auth()
         return make_response(json.JSONEncoder().encode([]))
 
