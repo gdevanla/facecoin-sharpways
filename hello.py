@@ -8717,10 +8717,23 @@ def auth():
 @app.route('/ocb', methods=['GET'])
 def ocb():
 
-    client.verify(request.args.get('oauth_token'),
-                  request.args.get('oauth_verifier'))
-    session['oauth_token'] = request.args.get('oauth_token')
-    session['oauth_verifier'] = request.args.get('oauth_verifier')
+    if not session["oauth_token"]:
+        client.verify(request.args.get('oauth_token'),
+                      request.args.get('oauth_verifier'))
+        session['oauth_token'] = client.oauth_token
+        session['oauth_secret'] = client.oauth_secret
+    else:
+
+        client = Client(
+            consumer_key="0d6f512bc947f1aaa02786d849bccd09c1129340",
+            consumer_secret="c10ed411b904bc5969b8535317ed93dcce20a7ad",
+            #callback_url="oob"
+            callback_url="http://thawing-savannah-5714.herokuapp.com/ocb",
+            oauth_token=session['oauth_token'],
+            oauth_secret=session['oauth_secret']
+        )
+
+
 
     print "done verifying"
     info = client.get_materials()
