@@ -8721,7 +8721,7 @@ def ocb():
         client.verify(request.args.get('oauth_token'),
                       request.args.get('oauth_verifier'))
         session['oauth_token'] = client.oauth_token
-        session['oauth_secret'] = client.oauth_secret
+        session['oauth_token_secret'] = client.oauth_secret
     else:
 
         client = Client(
@@ -8730,10 +8730,8 @@ def ocb():
             #callback_url="oob"
             callback_url="http://thawing-savannah-5714.herokuapp.com/ocb",
             oauth_token=session['oauth_token'],
-            oauth_secret=session['oauth_secret']
+            oauth_secret=session['oauth_token_secret']
         )
-
-
 
     print "done verifying"
     info = client.get_materials()
