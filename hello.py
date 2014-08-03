@@ -11,7 +11,8 @@ from shapeways.client import Client
 client = Client(
     consumer_key="0d6f512bc947f1aaa02786d849bccd09c1129340",
     consumer_secret="c10ed411b904bc5969b8535317ed93dcce20a7ad",
-    callback_url="oob"
+    #callback_url="oob"
+    callback_url="http://localhost:5000/ocb"
     #callback_url="http://thawing-savannah-5714.herokuapp.com/ocb"
 )
 
@@ -62,5 +63,5 @@ def ocb():
     #return make_response()
     return make_response(json.JSONEncoder().encode(info))
 
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
