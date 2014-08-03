@@ -17,7 +17,7 @@ client = Client(
 
 app = Flask(__name__)
 app.debug = True
-app.secret_key = 'why would I tell you my secret key?'
+app.secret_key = 'why would I tell you my secret key!?'
 
 fileData="""solid FLIRIS
 facet normal  0.955654E-01 -0.966960E+00  0.236339E+00
