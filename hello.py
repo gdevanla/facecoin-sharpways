@@ -54,5 +54,5 @@ def ocb():
     #return make_response()
     return make_response(json.JSONEncoder().encode(info))
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
