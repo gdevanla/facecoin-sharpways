@@ -1,1 +1,1 @@
-web: gunicorn hello:app --log-file=-
+web: gunicorn facecoin_sharpway:app --log-file=-
