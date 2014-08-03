@@ -16,6 +16,8 @@ client = Client(
 
 
 app = Flask(__name__)
+app.debug = True
+
 
 @app.route('/')
 def hello():
@@ -43,10 +45,14 @@ def add_model():
 
 @app.route('/ocb', methods=['GET'])
 def ocb():
-    client.verify(request.args)
+    # print request.args
+    # print request.args.get('oauth_token'), request.args.get('oauth_verifier')
+    # client.verify(request.args.get('oauth_token'), request.args.get('oauth_verifier'))
+    # print "done verifying"
     info = client.get_api_info()
-    return make_response(info)
-    #return make_response(json.JSONEncoder().encode(["calledback"]))
+    print "Info = ", info
+    #return make_response()
+    return make_response(json.JSONEncoder().encode(["calledback"]))
 
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
